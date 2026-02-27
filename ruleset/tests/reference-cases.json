@@ -1,0 +1,12 @@
+[
+  {
+    "name": "missing_tclass",
+    "input": {"marking": "Ex db IIB", "mode": "GAS", "conditions": {"zone": 1, "gasSubgroup": "IIB", "temperatureClass": "T4"}},
+    "expected": {"result": "NEED_MORE_DATA", "reason_codes": ["R_TEMPERATURE_CLASS_MISSING"]}
+  },
+  {
+    "name": "gas_subgroup_mismatch",
+    "input": {"marking": "Ex db IIA T4", "mode": "GAS", "conditions": {"zone": 1, "gasSubgroup": "IIC", "temperatureClass": "T4"}},
+    "expected": {"result": "NOT_OK", "reason_codes": ["R_GAS_SUBGROUP_MISMATCH"]}
+  }
+]

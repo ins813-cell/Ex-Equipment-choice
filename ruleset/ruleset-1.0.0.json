@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "effective_date": "2026-01-01",
+  "reason_codes": {
+    "R_TCLASS_MISSING": "Не указан температурный класс",
+    "R_GAS_SUBGROUP_MISMATCH": "Подгруппа газа ниже требуемой",
+    "R_DUST_SUBGROUP_MISMATCH": "Подгруппа пыли ниже требуемой",
+    "R_TA_OUT_OF_RANGE": "Ta выходит за пределы"
+  },
+  "rules": [
+    {"rule_id": "SAFE_UNCERTAINTY", "priority": 1000},
+    {"rule_id": "TCLASS_REQUIRED_GAS", "priority": 900},
+    {"rule_id": "GAS_SUBGROUP_COMPATIBILITY", "priority": 800},
+    {"rule_id": "DUST_SUBGROUP_COMPATIBILITY", "priority": 700},
+    {"rule_id": "AMBIENT_TA_LIMIT", "priority": 600}
+  ],
+  "changelog": ["Initial release"]
+}

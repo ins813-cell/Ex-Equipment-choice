@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: Ex Backend Gateway
+  version: 1.0.0
+paths:
+  /registry/check:
+    get:
+      parameters:
+        - in: query
+          name: number
+          required: true
+          schema: { type: string }
+        - in: query
+          name: type
+          required: true
+          schema: { type: string, enum: [cert, decl] }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string }
+                  valid_from: { type: string }
+                  valid_to: { type: string }
+                  regulation: { type: string }
+                  holder: { type: string }
+                  checked_at: { type: string }
+                  source_link: { type: string }
+  /content/ruleset/latest:
+    get:
+      responses:
+        '200':
+          description: Latest ruleset
+  /content/catalog/diff:
+    get:
+      parameters:
+        - in: query
+          name: since
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Catalog diff
